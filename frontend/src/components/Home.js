@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import("./Home.scss");
 
 export default function () {
@@ -13,7 +14,9 @@ export default function () {
           return it, you can easily pay with cryptocurrency
         </p>
       </div>
-      <button className="button-class choose-car">Our fleet</button>
+      <Link to="/dashboard" className="button-class choose-car">
+        Our fleet
+      </Link>
     </div>
   );
 }

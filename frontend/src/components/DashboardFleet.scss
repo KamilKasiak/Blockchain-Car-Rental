@@ -1,0 +1,37 @@
+.dashboard-fleet {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  .fleet-container {
+    max-width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    .car-container {
+      display: flex;
+      width: 25%;
+      //   border: solid 2px black;
+      //   background-color: yellow;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 0;
+      .car-description {
+        max-width: 100%;
+        font-size: 0.9rem;
+        overflow-wrap: break-word;
+      }
+
+      .car1 {
+      }
+      .car2 {
+      }
+      .car3 {
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

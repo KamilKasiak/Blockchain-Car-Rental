@@ -1,7 +1,7 @@
 @import "../App.scss";
 .page {
   min-height: 100%;
-  width: 100%;
+  max-width: 100%;
   position: absolute;
   background: rgb(2, 0, 36);
   background: -moz-linear-gradient(
@@ -24,7 +24,8 @@
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
   .container {
-    position: initial;
+    max-width: 100%;
+    max-height: 100%;
     height: auto;
     min-height: auto;
     animation: fadeIn 1s forwards;
