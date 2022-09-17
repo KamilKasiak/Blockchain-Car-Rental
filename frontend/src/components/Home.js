@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import("./Home.scss");
 
-export default function () {
+export default function Home() {
   return (
     <div className="container home-page">
       <div className="home-title-box">

@@ -2,7 +2,7 @@ import "./Navbar.scss";
 import metamaskLogo from "../assets/metamask.png";
 import { Link } from "react-router-dom";
 
-export default function () {
+export default function Navbar() {
   return (
     <div className="navbar">
       <div className="navbar-wrapper">
@@ -13,7 +13,7 @@ export default function () {
         </div>
         <div className="middle"></div>
         <div className="right">
-          <img src={metamaskLogo}></img>
+          <img src={metamaskLogo} alt="log"></img>
           <p>connect wallet</p>
         </div>
       </div>

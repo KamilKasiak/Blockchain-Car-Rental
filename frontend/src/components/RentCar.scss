@@ -1,0 +1,54 @@
+.welcome-text {
+  font-size: 1.3rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 4rem;
+}
+.pulpit-stats {
+  position: relative;
+  display: block;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  color: #fff;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  .pulpit-box {
+    position: relative;
+    max-width: 100%;
+    border: 1px solid black;
+    // Height 0 and padding % help in make responsive square
+    width: 30%;
+    height: 0;
+    padding-bottom: 18%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    p {
+      margin-top: 0;
+      padding-left: 6px;
+      padding-top: 4px;
+      width: 45%;
+      font-size: 1rem;
+    }
+
+    pre {
+      width: 45%;
+      padding-left: 8px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .pulpit-icon {
+      position: absolute;
+      font-size: 400%;
+      right: 2%;
+      top: 18%;
+    }
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .pulpit-icon {
+    position: absolute;
+    font-size: 350% !important;
+  }
+}

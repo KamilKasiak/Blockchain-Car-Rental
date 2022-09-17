@@ -17,20 +17,20 @@
       align-items: center;
       flex-wrap: wrap;
       margin: 0;
+      margin-top: 1rem;
       .car-description {
-        max-width: 100%;
+        width: 100%;
         font-size: 0.9rem;
         overflow-wrap: break-word;
       }
-
-      .car1 {
-      }
-      .car2 {
-      }
-      .car3 {
-      }
-      img {
+      .car-img {
         width: 100%;
+      }
+      .smaller {
+        position: relative;
+        margin-bottom: 5%;
+        scale: 125%;
+        margin-top: 8%;
       }
     }
   }

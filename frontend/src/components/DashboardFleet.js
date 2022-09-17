@@ -8,20 +8,20 @@ export default function DashboardFleet() {
     <div className="container dashboard-fleet">
       <div className="fleet-container">
         <div className="car-container car1">
-          <img src={vwPolo} />
+          <img className="car-img" src={vwPolo} alt="vw Polo" />
           <div className="car-description">
             <p>description</p>
           </div>
         </div>
         <div className="car-container car2">
-          <img src={tucson} />
+          <img className="car-img" src={tucson} alt="hyundai tucson" />
 
           <div className="car-description">
             <p>description</p>
           </div>
         </div>
         <div className="car-container car3">
-          <img src={corolla} />
+          <img className="car-img smaller" src={corolla} alt="toyota corolla" />
 
           <div className="car-description">
             <p>description</p>

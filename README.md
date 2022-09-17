@@ -50,18 +50,20 @@
 
 ## Screenshots
 
+![Example screenshot](./img/home.png)
+![Example screenshot](./img/dashboard.png)
+![Example screenshot](./img/login.png)
 ![Example screenshot](./img/carPickUp.jpg)
 ![Example screenshot](./img/carDropOff.jpg)
 ![Example screenshot](./img/carAfterWithdraw.jpg)
-![Example screenshot](./img/home.jpg)
 
 ## Setup
 
 npm init
 npm inastall
+download and use metamask extension for browser
+prepare .env file based on .env.example.
 npx hardhat run scripts/deploy.js --network goerli
-
-Make sure to prepare your own .env file based on .env.example.
 
 ## Project Status
 
