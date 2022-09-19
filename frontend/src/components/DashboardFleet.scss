@@ -5,6 +5,7 @@
   .fleet-container {
     max-width: 100%;
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     align-items: center;
     justify-content: space-around;
@@ -31,6 +32,21 @@
         margin-bottom: 5%;
         scale: 125%;
         margin-top: 8%;
+      }
+      .button-box {
+        position: relative;
+        display: flex;
+        max-width: 90%;
+        box-sizing: border-box;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+        .rent-car-button {
+          font-size: 0.8rem;
+          text-align: justify;
+        }
       }
     }
   }

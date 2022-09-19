@@ -6,7 +6,7 @@ import RentCar from "./RentCar";
 
 export default function Dashboard() {
   const isConnected = true;
-  const isRegistered = false;
+  const isRegistered = true;
 
   return (
     <div className="container dashboard-page">
