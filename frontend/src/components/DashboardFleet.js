@@ -2,6 +2,9 @@ import "./DashboardFleet.scss";
 import vwPolo from "../assets/vwPolo.png";
 import tucson from "../assets/tucson.png";
 import corolla from "../assets/corolla.png";
+import gear from "../assets/gear.png";
+import AirlineSeatReclineExtraIcon from "@mui/icons-material/AirlineSeatReclineExtra";
+import LuggageIcon from "@mui/icons-material/Luggage";
 
 export default function DashboardFleet() {
   return (
@@ -11,9 +14,16 @@ export default function DashboardFleet() {
           <img className='car-img' src={vwPolo} alt='vw Polo' />
           <div className='car-description'>
             <ul>
-              <li>5 seats</li>
-              <li>manual gear</li>
-              <li> 1 big bag</li>
+              <li>
+                <AirlineSeatReclineExtraIcon />5 seats
+              </li>
+              <li>
+                <img className='gear-icon' src={gear} alt='gear icon' />
+                manual
+              </li>
+              <li>
+                <LuggageIcon />1 bag
+              </li>
             </ul>
           </div>
           <div className='button-box'>
@@ -29,16 +39,23 @@ export default function DashboardFleet() {
           <img className='car-img' src={tucson} alt='hyundai tucson' />
           <div className='car-description'>
             <ul>
-              <li>5 seats</li>
-              <li>manual gear</li>
-              <li>2 big bag</li>
+              <li>
+                <AirlineSeatReclineExtraIcon />5 seats
+              </li>
+              <li>
+                <img className='gear-icon' src={gear} alt='gear icon' />
+                manual
+              </li>
+              <li>
+                <LuggageIcon />2 bags
+              </li>
             </ul>
           </div>
-          <div className='button-box'>
-            <button className='button-class form-deposit-button' type='submit'>
+          <div className='button-box '>
+            <button className='button-class rent-car-button' type='submit'>
               Pick Up
             </button>
-            <button className='button-class form-deposit-button' type='submit'>
+            <button className='button-class rent-car-button' type='submit'>
               Drop off
             </button>
           </div>
@@ -48,16 +65,23 @@ export default function DashboardFleet() {
 
           <div className='car-description'>
             <ul>
-              <li>5 seats</li>
-              <li>automate gear</li>
-              <li>1 big bag</li>
+              <li>
+                <AirlineSeatReclineExtraIcon />5 seats
+              </li>
+              <li>
+                <img className='gear-icon' src={gear} alt='gear icon' />
+                automatic
+              </li>
+              <li>
+                <LuggageIcon className='luggage' />1 bag
+              </li>
             </ul>
           </div>
           <div className='button-box'>
-            <button className='button-class form-deposit-button' type='submit'>
+            <button className='button-class rent-car-button' type='submit'>
               Pick Up
             </button>
-            <button className='button-class form-deposit-button' type='submit'>
+            <button className='button-class rent-car-button' type='submit'>
               Drop off
             </button>
           </div>

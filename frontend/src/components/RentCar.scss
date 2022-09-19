@@ -7,15 +7,15 @@
     margin-bottom: 4rem;
   }
   .pulpit-stats {
+    max-width: 100%;
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
     color: #fff;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     .pulpit-box {
       position: relative;
-      max-width: 100%;
       border: 1px solid black;
       // Height 0 and padding % help in make responsive square
       width: 30%;
@@ -34,7 +34,7 @@
       pre {
         width: 45%;
         padding-left: 8px;
-        font-size: 1.2rem;
+        font-size: 1.6rem;
         text-align: center;
       }
       .pulpit-icon {
@@ -57,7 +57,7 @@
     flex-wrap: wrap;
     color: #181818;
     form {
-      margin-bottom: 1rem;
+      margin-bottom: 1.8rem;
     }
     .payment-input {
       max-width: 100%;
@@ -77,5 +77,7 @@
   .pulpit-icon {
     position: absolute;
     font-size: 350% !important;
+  }
+  .pulpit-payments {
   }
 }

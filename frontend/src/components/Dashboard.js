@@ -6,13 +6,13 @@ import RentCar from "./RentCar";
 
 export default function Dashboard() {
   const isConnected = true;
-  const isRegistered = true;
+  const isRegistered = false;
 
   return (
-    <div className="container dashboard-page">
-      <div className="dashboard-top">
+    <div className='container dashboard-page'>
+      <div className='dashboard-top'>
         {!isConnected || !isRegistered ? (
-          <div className="dashboard-form-row">
+          <div className='dashboard-form-row'>
             <DashboardLogin />
             <DashboardForm />
           </div>
@@ -20,7 +20,7 @@ export default function Dashboard() {
           <RentCar />
         )}
       </div>
-      <div className="dashboard-fleet-row">
+      <div className='dashboard-fleet-row'>
         <DashboardFleet />
       </div>
     </div>
