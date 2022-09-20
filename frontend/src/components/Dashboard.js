@@ -3,10 +3,12 @@ import DashboardLogin from "./DashboardLogin";
 import DashboardFleet from "./DashboardFleet";
 import DashboardForm from "./DashboardForm";
 import RentCar from "./RentCar";
+import { useConnectedHook } from "../Hooks/useConnectedHook";
+import { useRegisterededHook } from "../Hooks/useRegisteredHook";
 
 export default function Dashboard() {
-  const isConnected = true;
-  const isRegistered = false;
+  const { isConnected } = useConnectedHook();
+  const { isRegistered } = useRegisterededHook();
 
   return (
     <div className='container dashboard-page'>

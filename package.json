@@ -25,6 +25,7 @@
     "crypto-aes-gcm": "^1.1.0",
     "dotenv": "^16.0.2",
     "mocha": "^10.0.0",
+    "solc-js": "^1.0.1",
     "solidity-coverage": "^0.8.2"
   }
 }

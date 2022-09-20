@@ -21,7 +21,7 @@ module.exports = {
       chainId: 31337,
     },
   },
-  solidity: "0.8.17",
+  solidity: "0.8.16",
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/

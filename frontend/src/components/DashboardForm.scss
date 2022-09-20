@@ -6,7 +6,8 @@
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-bottom: 4rem;
     padding-bottom: 2rem;
@@ -17,8 +18,9 @@
       margin-bottom: 2.5rem;
     }
     .form-submit-button {
-      position: absolute;
+      position: relative;
       bottom: 0;
+      left: 33%;
     }
   }
 }

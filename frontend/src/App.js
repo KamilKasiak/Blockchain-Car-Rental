@@ -7,9 +7,9 @@ import Dashboard from "./components/Dashboard.js";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Route>
     </Routes>
   );

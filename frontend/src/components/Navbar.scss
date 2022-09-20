@@ -21,13 +21,14 @@
       align-items: center;
       justify-content: flex-end;
       margin-right: 2rem;
+      cursor: pointer;
       img {
         display: flex;
         position: relative;
         width: 1.7rem;
         align-self: flex-start;
         padding-right: 1rem;
-        top: 1.2rem;
+        top: 1rem;
       }
     }
     .left {
