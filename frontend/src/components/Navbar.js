@@ -5,33 +5,26 @@ import ethereum from "../assets/ethereum.png";
 import { ethers } from "ethers";
 import { useState, useEffect } from "react";
 import { useConnectedHook } from "../Hooks/useConnectedHook.js";
-import { useSignerHook } from "../Hooks/useSignerHook.js";
-import { useContractHook } from "../Hooks/useContractHook.js";
 import contractAbi from "../assets/CarChain.json";
 require("dotenv").config();
 
 export default function Navbar() {
   const [chainId, setChainId] = useState("");
-  // const [chainName, setChainName] = useState("");
-  const { isConnected, setIsConnected } = useConnectedHook();
-  const { signer, setSigner } = useSignerHook();
-  const { contract, setContract } = useContractHook();
   const [address, setAddress] = useState("");
-  const slicedAddress = address.slice(0, 5) + "..." + address.slice(38, 44);
-  const contractAddress = process.env.CONTRACT_ADDRESS;
+  const [balance, setBalance] = useState("");
+  const { isConnected, setIsConnected } = useConnectedHook();
+  const [newContract, setNewContract] = useState("");
 
-  const createContract = async () => {
-    const contract = await new ethers.Contract(
-      contractAddress,
-      contractAbi.abi,
-      signer
-    );
-    setContract(contract);
-  };
+  const slicedAddress = address.slice(0, 5) + "..." + address.slice(38, 44);
+  const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+  const signer = provider.getSigner();
+
+  const contractAddress = "0x930021ba0D8cfF4dd03d3064dF71889674c47077";
 
   useEffect(() => {
     connectWallet().catch(console.error);
-    createContract();
+    createContract().catch(console.error);
+    getBalance().catch(console.error);
     // console.log("Is connected: " + isConnected);
   });
 
@@ -41,13 +34,9 @@ export default function Navbar() {
       console.log("please install MetaMask");
       return;
     }
-    const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
     // MetaMask requires requesting permission to connect users accounts
     let accounts = await provider.send("eth_requestAccounts", []);
     let account = accounts[0];
-
-    const signer = provider.getSigner();
-    setSigner(signer);
     const address = await signer.getAddress();
     const chainId = await signer.getChainId();
     setAddress(address);
@@ -56,6 +45,21 @@ export default function Navbar() {
       setIsConnected(true);
     }
     // console.log("address: " + address + " network id: " + chainId);
+  };
+
+  const createContract = async () => {
+    const contract = await new ethers.Contract(
+      contractAddress,
+      contractAbi.abi,
+      signer
+    );
+    console.log(contract);
+  };
+
+  const getBalance = async () => {
+    const balance = await provider.getBalance(contractAddress);
+    const balanceFormated = ethers.utils.formatEther(balance);
+    setBalance(balanceFormated);
   };
 
   const onClickConnect = () => {
@@ -67,6 +71,7 @@ export default function Navbar() {
         <div className='left'>
           <Link to='/' className='left-logo'>
             <img className='logo-img' src={ethereum} alt='ethereumLogo' />
+            <p>{balance}</p>
           </Link>
         </div>
         <div className='middle'></div>

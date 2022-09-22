@@ -1,16 +1,27 @@
 import "./DashboardForm.scss";
 import { useState } from "react";
-
+import { useContractHook } from "../Hooks/useContractHook";
 import { useSignerHook } from "../Hooks/useSignerHook";
 
 export default function DashboardForm() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
-  const { signer } = useSignerHook();
+  const { newContract } = useContractHook();
 
-  const handleRegisterSubmit = (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-    console.log("contract is: ");
+    // await newContract.addRenter(
+    //   address,
+    //   name,
+    //   lastName,
+    //   false,
+    //   false,
+    //   0,
+    //   0,
+    //   0,
+    //   0,
+    //   0
+    // );
   };
 
   return (

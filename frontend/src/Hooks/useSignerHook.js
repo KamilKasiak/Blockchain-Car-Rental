@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export const useSignerHook = () => {
-  const [signer, setSigner] = useState("");
+  const [newSigner, setSigner] = useState("");
 
-  return { signer, setSigner };
+  return { newSigner, setSigner };
 };
