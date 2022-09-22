@@ -1,12 +1,9 @@
 import "./DashboardForm.scss";
 import { useState } from "react";
-import { useContractHook } from "../Hooks/useContractHook";
-import { useSignerHook } from "../Hooks/useSignerHook";
 
 export default function DashboardForm() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
-  const { newContract } = useContractHook();
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
