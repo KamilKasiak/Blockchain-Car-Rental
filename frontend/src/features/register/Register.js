@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 
 const Register = () => {
-  const registered = (state) => state.registrator.registered;
+  const registered = useSelector((state) => state.registrator.registered);
   const dispatch = useDispatch();
 };
 
