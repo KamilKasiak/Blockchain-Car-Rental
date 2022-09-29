@@ -1,6 +1,6 @@
 # Car Chain
 
-> Blockchain web application based on smart contracts in solidity.
+> Blockchain web application based on smart contracts in solidity. Contract deployed on Goerli network at this moment. Contract Address: 0x930021ba0D8cfF4dd03d3064dF71889674c47077
 
 ## Table of Contents
 
@@ -25,12 +25,15 @@
 - Hardhat: 2.11.2
 - Mocha: 10.0.0
 - React: 18.2.0
+- Redux: 4.2.0
+- Sass: 1.54.9
+- JavaScript
 - React-dom: 18.2.0
 - React-router-dom: 6.4.0
 - React-scripts: 5.0.1
-- Sass: 1.54.9
+- Reduxjs/toolkit: 1.8.5
+- React-redux: 8.0.2,
 - Animate.css: 4.1.1
-- JavaScript
 - Etherscan: 3.1.0
 - Solidity-coverage: 0.8.2
 
@@ -81,7 +84,7 @@ Room for improvement:
 
 To do:
 
-- Implement frontend application based on React and ethersjs
+- pass contract object to any page using Redux
 
 ## Contact
 
