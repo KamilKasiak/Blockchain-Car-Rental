@@ -54,8 +54,8 @@
 ## Screenshots
 
 ![Example screenshot](./img/home.png)
-![Example screenshot](./img/dashboard.png)
 ![Example screenshot](./img/login.png)
+![Example screenshot](./img/dashboard.png)
 ![Example screenshot](./img/carPickUp.jpg)
 ![Example screenshot](./img/carDropOff.jpg)
 ![Example screenshot](./img/carAfterWithdraw.jpg)
@@ -84,7 +84,7 @@ Room for improvement:
 
 To do:
 
-- pass contract object to any page using Redux
+- use contract function for deposit and repay
 
 ## Contact
 
