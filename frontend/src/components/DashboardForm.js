@@ -1,25 +1,37 @@
 import "./DashboardForm.scss";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { register } from "../features/register/checkRegistrationSlice";
 
-export default function DashboardForm() {
+export default function DashboardForm({ contract, provider }) {
+  const currentAddress = useSelector((state) => state.currentAddress.address);
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-    // await newContract.addRenter(
-    //   address,
-    //   name,
-    //   lastName,
-    //   false,
-    //   false,
-    //   0,
-    //   0,
-    //   0,
-    //   0,
-    //   0
-    // );
+    await contract.addRenter(
+      currentAddress,
+      name,
+      lastName,
+      true,
+      false,
+      0,
+      0,
+      0,
+      0,
+      0
+    );
   };
+
+  const canRent = async () => {
+    const canRentCar = await contract.canRentCar(currentAddress);
+    if (canRentCar) {
+      dispatch(register());
+    }
+  };
+  canRent();
 
   return (
     <div className='container dashboard-form'>

@@ -1,6 +1,6 @@
 # Car Chain
 
-> Blockchain web application based on smart contracts in solidity.
+> Blockchain web application based on smart contracts in solidity. Contract deployed on Goerli network at this moment. Contract Address: 0x930021ba0D8cfF4dd03d3064dF71889674c47077
 
 ## Table of Contents
 

@@ -2,13 +2,31 @@ import "./RentCar.scss";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import { useState } from "react";
-import { useSignerHook } from "../Hooks/useSignerHook";
+import { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import { useSelector } from "react-redux";
 
-export default function RentCar() {
+export default function RentCar({ contract }) {
   const [ethDepositAmount, setEthDepositAmount] = useState("");
   const [repayAmount, setRepayAmount] = useState("");
-  const { signer, setSigner } = useSignerHook();
+  const [balance, setBalance] = useState("");
+
+  const currentAddress = useSelector((state) => state.currentAddress.address);
+
+  useEffect(() => {
+    getBalanceOfRenter().catch(console.error);
+  });
+
+  const getBalanceOfRenter = async () => {
+    const balance = await contract.balanceOfRenter(currentAddress);
+    const balanceFormated = ethers.utils.formatEther(balance);
+    setBalance(balanceFormated);
+  };
+
+  const handleDepositEth = async (e) => {
+    e.preventDefault();
+    console.log(ethDepositAmount);
+  };
 
   return (
     <div className='container rent-car-page'>
@@ -18,7 +36,7 @@ export default function RentCar() {
       <div className='pulpit-stats'>
         <div className='pulpit-box'>
           <p>Balance</p>
-          <pre>0.0</pre>
+          <pre>{balance}</pre>
           <AccountBalanceWalletIcon className='pulpit-icon' />
         </div>
         <div className='pulpit-box'>
@@ -36,8 +54,7 @@ export default function RentCar() {
         <div className='deposit-eth-box'>
           <form
             onSubmit={(e) => {
-              e.preventDefault();
-              console.log(ethDepositAmount);
+              handleDepositEth();
             }}
           >
             <h2>Credit Your Account</h2>
