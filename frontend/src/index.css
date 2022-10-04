@@ -4,6 +4,7 @@ html {
   max-height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
+  font-size: 90%;
 }
 body {
   font-size: 100%;

@@ -11,7 +11,7 @@ export default function DashboardForm({ contract, provider }) {
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-    await contract.addRenter(
+    const addRenter = await contract.addRenter(
       currentAddress,
       name,
       lastName,
@@ -23,12 +23,15 @@ export default function DashboardForm({ contract, provider }) {
       0,
       0
     );
+    await addRenter.wait();
+    window.location.reload();
   };
 
   const canRent = async () => {
     const canRentCar = await contract.canRentCar(currentAddress);
-    const isRenter = await contract.renters(currentAddress);
-    if (canRentCar || isRenter) {
+    const currentRenter = await contract.renters(currentAddress);
+    const name = currentRenter[1];
+    if (canRentCar || name.length > 0) {
       dispatch(register());
     }
   };

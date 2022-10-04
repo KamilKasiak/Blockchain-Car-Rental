@@ -163,7 +163,7 @@ contract CarChain {
     }
 
     //Make payment
-    function makePayment(address walletAddress) public {
+    function makePayment(address walletAddress) public payable {
         require(
             renters[walletAddress].due > 0,
             "You don't have to pay anything at this time"

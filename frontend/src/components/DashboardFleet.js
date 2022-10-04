@@ -11,11 +11,15 @@ export default function DashboardFleet({ contract }) {
   const currentAddress = useSelector((state) => state.currentAddress.address);
 
   const pickUpHandler = async () => {
-    await contract.pickUp(currentAddress);
+    const pickUp = await contract.pickUp(currentAddress);
+    await pickUp.wait();
+    window.location.reload();
   };
 
   const dropOffHandler = async () => {
-    await contract.dropOff(currentAddress);
+    const dropOff = await contract.dropOff(currentAddress);
+    await dropOff.wait();
+    window.location.reload();
   };
   return (
     <div className='container dashboard-fleet'>
@@ -70,10 +74,18 @@ export default function DashboardFleet({ contract }) {
             </ul>
           </div>
           <div className='button-box '>
-            <button className='button-class rent-car-button' type='submit'>
+            <button
+              className='button-class rent-car-button'
+              type='submit'
+              onClick={() => pickUpHandler()}
+            >
               Pick Up
             </button>
-            <button className='button-class rent-car-button' type='submit'>
+            <button
+              className='button-class rent-car-button'
+              type='submit'
+              onClick={() => dropOffHandler()}
+            >
               Drop off
             </button>
           </div>
@@ -96,10 +108,18 @@ export default function DashboardFleet({ contract }) {
             </ul>
           </div>
           <div className='button-box'>
-            <button className='button-class rent-car-button' type='submit'>
+            <button
+              className='button-class rent-car-button'
+              type='submit'
+              onClick={() => pickUpHandler()}
+            >
               Pick Up
             </button>
-            <button className='button-class rent-car-button' type='submit'>
+            <button
+              className='button-class rent-car-button'
+              type='submit'
+              onClick={() => dropOffHandler()}
+            >
               Drop off
             </button>
           </div>

@@ -8,18 +8,20 @@ import { useSelector } from 'react-redux';
 
 export default function RentCar({ contract }) {
   const [ethDepositAmount, setEthDepositAmount] = useState('');
-  const [repayAmount, setRepayAmount] = useState('');
   const [balance, setBalance] = useState('0.0');
   const [due, setDue] = useState('0');
   const [name, setName] = useState('mate');
   const [totalDuration, setTotalDuration] = useState('0');
+  const [isActive, setIsActive] = useState('false');
 
   const currentAddress = useSelector((state) => state.currentAddress.address);
 
   useEffect(() => {
     getBalanceOfRenter().catch(console.error);
     getParamsOfRenter().catch(console.error);
-    getTotalDuration().catch(console.error);
+    if (!isActive) {
+      getTotalDuration().catch(console.error);
+    }
   });
 
   const getBalanceOfRenter = async () => {
@@ -34,17 +36,20 @@ export default function RentCar({ contract }) {
     setDue(dueFormated);
     const name = currentRenter[1];
     setName(name);
+    const active = currentRenter[4];
+    setIsActive(active);
   };
   const getTotalDuration = async () => {
     const totalDuration = await contract.getTotalDuration(currentAddress);
     const stringedTotalDuration = totalDuration.toString();
-    setTotalDuration(stringedTotalDuration);
-    console.log('duration is: ' + stringedTotalDuration);
+    if (totalDuration) {
+      setTotalDuration(stringedTotalDuration);
+      console.log('duration is: ' + stringedTotalDuration);
+    }
   };
 
   const handleDepositEth = () => {
     // e.preventDefault();
-    console.log(ethDepositAmount);
     const ethValue = ethers.utils.parseEther(ethDepositAmount);
     const options = { value: ethValue };
     const deposit = async () => {
@@ -57,11 +62,19 @@ export default function RentCar({ contract }) {
     deposit();
     setEthDepositAmount('');
   };
+  const handleRepay = async () => {
+    const repayAmountProvided = ethers.utils.parseEther(due);
+    console.log('due after parse is: ' + repayAmountProvided);
+    const options = { value: repayAmountProvided };
+    const repay = await contract.makePayment(currentAddress);
+    await repay.wait();
+    getTotalDuration().catch(console.error);
+  };
 
   return (
     <div className='container rent-car-page'>
       <div className='welcome-text'>
-        <h1> Hey {name}! Here are your pulpit:</h1>
+        <h1> Hey {name ? name : 'mate'}! Here are your pulpit:</h1>
       </div>
       <div className='pulpit-stats'>
         <div className='pulpit-box'>
@@ -74,7 +87,7 @@ export default function RentCar({ contract }) {
           <pre>{due}</pre>
           <AttachMoneyIcon className='pulpit-icon' />
         </div>
-        <div className='pulpit-box'>
+        <div className={!isActive ? 'pulpit-box' : 'pulpit-box active'}>
           <p>Rent time</p>
           <pre>{totalDuration} min</pre>
           <AccessTimeIcon className='pulpit-icon' />
@@ -109,7 +122,6 @@ export default function RentCar({ contract }) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              console.log(repayAmount);
             }}
           >
             <h2>Repay Your Due</h2>
@@ -118,13 +130,15 @@ export default function RentCar({ contract }) {
               type='number'
               placeholder='eth amount'
               required
-              onChange={(e) => {
-                setRepayAmount(e.target.value);
-              }}
-              value={repayAmount}
+              disabled
+              value={due}
             ></input>
-            <button className='button-class form-deposit-button' type='submit'>
-              Deposit
+            <button
+              className='button-class form-deposit-button'
+              type='submit'
+              onClick={() => handleRepay()}
+            >
+              Repay
             </button>
           </form>
         </div>

@@ -56,9 +56,10 @@
 ![Example screenshot](./img/home.png)
 ![Example screenshot](./img/login.png)
 ![Example screenshot](./img/dashboard.png)
-![Example screenshot](./img/carPickUp.jpg)
-![Example screenshot](./img/carDropOff.jpg)
-![Example screenshot](./img/carAfterWithdraw.jpg)
+![Example screenshot](./img/afterPickUp.png)
+![Example screenshot](./img/Repay.png)
+![Example screenshot](./img/afterRepay.png)
+![Example screenshot](./img/transactionList.png)
 
 ## Setup
 
@@ -81,10 +82,11 @@ Project is: _in progress_
 Room for improvement:
 
 - write more tests for contract
+- add more information for user while exectuting contrract
 
 To do:
 
-- use contract function for deposit and repay
+- visual improvement for good user experiance while waiting for contract execution
 
 ## Contact
 

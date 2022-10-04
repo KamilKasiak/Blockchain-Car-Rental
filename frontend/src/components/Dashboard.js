@@ -18,7 +18,7 @@ export default function Dashboard() {
   const registered = useSelector((state) => state.registrator.registered);
   const currentAddress = useSelector((state) => state.currentAddress.address);
   const dispatch = useDispatch();
-  const contractAddress = '0x930021ba0D8cfF4dd03d3064dF71889674c47077';
+  const contractAddress = '0xa1f8155a5708962139C920De2412BED69708E01b';
 
   const provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
   const signer = provider.getSigner();
@@ -47,8 +47,10 @@ export default function Dashboard() {
     console.log('address: ' + currentAddress + ' network id: ' + chainId);
   };
 
-  dispatch(connect());
-  dispatch(updateAddress(address));
+  if (address) {
+    dispatch(connect());
+    dispatch(updateAddress(address));
+  }
 
   const contract = new ethers.Contract(
     contractAddress,

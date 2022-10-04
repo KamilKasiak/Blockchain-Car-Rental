@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   width: 100%;
+
   .form-container {
     width: 100%;
     position: relative;
@@ -9,10 +10,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     padding-bottom: 2rem;
     flex-direction: column;
-
+    box-sizing: border-box;
     .lastName {
       margin-top: 1rem;
       margin-bottom: 2.5rem;
