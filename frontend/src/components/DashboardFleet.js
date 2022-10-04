@@ -1,12 +1,22 @@
-import "./DashboardFleet.scss";
-import vwPolo from "../assets/vwPolo.png";
-import tucson from "../assets/tucson.png";
-import corolla from "../assets/corolla.png";
-import gear from "../assets/gear.png";
-import AirlineSeatReclineExtraIcon from "@mui/icons-material/AirlineSeatReclineExtra";
-import LuggageIcon from "@mui/icons-material/Luggage";
+import './DashboardFleet.scss';
+import vwPolo from '../assets/vwPolo.png';
+import tucson from '../assets/tucson.png';
+import corolla from '../assets/corolla.png';
+import gear from '../assets/gear.png';
+import AirlineSeatReclineExtraIcon from '@mui/icons-material/AirlineSeatReclineExtra';
+import LuggageIcon from '@mui/icons-material/Luggage';
+import { useSelector } from 'react-redux';
 
-export default function DashboardFleet() {
+export default function DashboardFleet({ contract }) {
+  const currentAddress = useSelector((state) => state.currentAddress.address);
+
+  const pickUpHandler = async () => {
+    await contract.pickUp(currentAddress);
+  };
+
+  const dropOffHandler = async () => {
+    await contract.dropOff(currentAddress);
+  };
   return (
     <div className='container dashboard-fleet'>
       <div className='fleet-container'>
@@ -27,10 +37,18 @@ export default function DashboardFleet() {
             </ul>
           </div>
           <div className='button-box'>
-            <button className='button-class rent-car-button' type='submit'>
+            <button
+              className='button-class rent-car-button'
+              type='submit'
+              onClick={() => pickUpHandler()}
+            >
               Pick Up
             </button>
-            <button className='button-class rent-car-button' type='submit'>
+            <button
+              className='button-class rent-car-button'
+              type='submit'
+              onClick={() => dropOffHandler()}
+            >
               Drop off
             </button>
           </div>

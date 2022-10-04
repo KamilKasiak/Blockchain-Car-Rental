@@ -1,13 +1,13 @@
-import "./DashboardForm.scss";
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { register } from "../features/register/checkRegistrationSlice";
+import './DashboardForm.scss';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { register } from '../features/register/checkRegistrationSlice';
 
 export default function DashboardForm({ contract, provider }) {
   const currentAddress = useSelector((state) => state.currentAddress.address);
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +27,8 @@ export default function DashboardForm({ contract, provider }) {
 
   const canRent = async () => {
     const canRentCar = await contract.canRentCar(currentAddress);
-    if (canRentCar) {
+    const isRenter = await contract.renters(currentAddress);
+    if (canRentCar || isRenter) {
       dispatch(register());
     }
   };
